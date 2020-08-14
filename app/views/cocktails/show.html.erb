@@ -1,19 +1,27 @@
 
-<p class="h1"><%= @cocktail.name %></p>
-
-<p class="h2">Doses</p>
+<h1 style="text-align:center; background-color: beige;"><%= @cocktail.name %></h1><h6 style="text-align:center;">list of ingredient<h6>
  <% @cocktail.doses.each do |dose| %>
-    <li class="list-group-item">
-      <%= dose.description %>
+    <li class="list-group-item" style="background-color: beige; padding-left: 165px; max-width: 500px;  margin-left: 32%;">
+      <%= dose.description%>
       <%= dose.ingredient.name %>
-      <%= link_to "Delete #{dose.description}", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }%>
-  <% end %>
-<br><br>
+      &nbsp;&nbsp;
+      <%= link_to "x", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }%>
 
+    <% end %>
+    </li>
+<br><br>
 
 <div class="text-center">
 
 
-<%= link_to 'Add a new dose', new_cocktail_dose_path(@cocktail) %>
-<%= link_to 'Back', cocktails_path %>
+<p>missing something in your drink? Add it here!</p>
+<div class="container", style="max-width:500px; background-color: beige;">
+<%= simple_form_for [ @cocktail, @dose ] do |f| %>
+  <%= f.input :description%>
+  <%= f.association :ingredient %>
+  <%= f.button :submit %>
+<% end %>
+</div>
+
+<%= link_to 'Back', root_path %>
 </div>
