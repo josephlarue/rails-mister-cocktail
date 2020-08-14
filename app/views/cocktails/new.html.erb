@@ -4,11 +4,13 @@
 
 <%= simple_form_for (@cocktail) do |f| %>
     <%= f.input :name %>
-    <%= f.submit "Submit Cocktail", class: "btn btn-primary" %>
+    <%= f.submit "Submit Cocktail", class: "btn btn-flat" %>
   <% end %>
 
 <br><br><br>
-<div class="text-center">
-<%= link_to 'Back', root_path %>
+
+    <div class="btn btn-flat" href="#">
+      <%= link_to 'Back', root_path %>
+    </div>
 </div>
 </div>
