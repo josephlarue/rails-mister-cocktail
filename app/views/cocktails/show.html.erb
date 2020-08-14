@@ -19,7 +19,9 @@
 <%= simple_form_for [ @cocktail, @dose ] do |f| %>
   <%= f.input :description%>
   <%= f.association :ingredient %>
-  <%= f.button :submit %>
+  <%= f.button :submit, value:"In the cup!", data: { 
+               disable_with: 'Pouring!'
+             },class:"btn btn-flat" %>
 <% end %>
 </div>
 
